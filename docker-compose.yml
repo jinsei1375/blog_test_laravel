@@ -24,10 +24,10 @@ services:
       context: .
       dockerfile: ./docker/db/Dockerfile
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
       MYSQL_DATABASE: blog_sample
-      MYSQL_USER: root
+      MYSQL_USER: root_user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
       TZ: "Asia/Tokyo"
