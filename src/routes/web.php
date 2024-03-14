@@ -17,8 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth', 'checkIpAddress'])->group(function () {
+    Route::name('dashboard')
+        ->get('/dashboard', function () {
+            return view('dashboard');
+        });
+});
 
 require __DIR__.'/auth.php';
