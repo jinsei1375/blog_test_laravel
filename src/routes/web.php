@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,7 @@ Route::middleware(['auth', 'checkIpAddress'])->group(function () {
             return view('dashboard');
         });
 });
+
+Route::get('/test', [TestController::class, 'index']);
 
 require __DIR__.'/auth.php';
