@@ -3,19 +3,30 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
     public function index()
     {
-        $today = Carbon::today();
-        $threeDaysAgo = $today->addDays(3);
+        $todayCarbonImmuutable = CarbonImmutable::today();
+        $threeDaysAgo = $todayCarbonImmuutable->addDays(3);
 
-        if ($today->eq($threeDaysAgo)) {
-            dd('同じ日付です。');
+        // copy()を使う
+        $today = Carbon::today();
+        $threeDaysAgoByTodayCopy = $today->copy()->addDays(3);
+
+        // if ($todayCarbonImmuutable->eq($threeDaysAgo)) {
+        //     dd('同じ日付です。');
+        // } else {
+        //     dd('同じ日付ではありません。');
+        // }
+
+        if ($today->eq($threeDaysAgoByTodayCopy)) {
+            dd('copy: 同じ日付です。');
         } else {
-            dd('同じ日付ではありません。');
+            dd('copy: 同じ日付ではありません。');
         }
     }
 }
