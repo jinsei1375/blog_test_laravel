@@ -26,5 +26,6 @@ Route::middleware(['auth', 'checkIpAddress'])->group(function () {
 });
 
 Route::get('/test', [TestController::class, 'index']);
+Route::get('/target-users', [TestController::class, 'targetUsers']);
 
 require __DIR__.'/auth.php';

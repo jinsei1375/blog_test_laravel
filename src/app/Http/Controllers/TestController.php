@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\isEmpty;
 
 class TestController extends Controller
 {
@@ -28,5 +31,26 @@ class TestController extends Controller
         } else {
             dd('copy: 同じ日付ではありません。');
         }
+    }
+
+    public function targetUsers()
+    {
+        // whereでの取得
+        $targetUsers = User::where('created_at', '2024-03-09')->get();
+
+        // whereDateでの取得
+        $targetUsersByWhereDate = User::whereDate('created_at', '2024-03-09')->get();
+
+        // whereDateでの取得
+        $targetUsersByWhereBetween = User::whereBetween('created_at', ['2024-03-09 00:00:00', '2024-03-09 23:59:59'])->get();
+
+        if ($targetUsersByWhereDate->isEmpty()) {
+            $message = '対象ユーザーいないよ！';
+        } else {
+            $message = '対象ユーザーいるよ！';
+        }
+
+        return view('target-users')
+            ->with('message', $message);
     }
 }
