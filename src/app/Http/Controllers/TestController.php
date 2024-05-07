@@ -53,4 +53,16 @@ class TestController extends Controller
         return view('target-users')
             ->with('message', $message);
     }
+
+    public function null()
+    {
+        $null = null;
+        $empty = '';
+        $zero = 0;
+
+        return view('nulltest')
+        ->with('null', $null)
+        ->with('empty', $empty)
+        ->with('zero', $zero);
+    }
 }
