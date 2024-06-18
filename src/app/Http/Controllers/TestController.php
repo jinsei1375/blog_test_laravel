@@ -65,4 +65,16 @@ class TestController extends Controller
         ->with('empty', $empty)
         ->with('zero', $zero);
     }
+
+    public function addMonthTest()
+    {
+        $date1 = Carbon::parse('2024-06-30');
+        $date1->addMonth();
+
+        $date2 = Carbon::parse('2024-01-31');
+        $date2->addMonth();
+        return view('addmonth')
+            ->with('date1', $date1)
+            ->with('date2', $date2);
+    }
 }
