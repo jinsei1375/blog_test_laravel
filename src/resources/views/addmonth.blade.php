@@ -15,6 +15,9 @@
                     <p>
                         {{ '$date2→  ' . $date2 }}
                     </p>
+                    <p>
+                        {{ '$date3→  ' . $date3 }}
+                    </p>
                 </div>
             </div>
         </div>

@@ -69,12 +69,16 @@ class TestController extends Controller
     public function addMonthTest()
     {
         $date1 = Carbon::parse('2024-06-30');
-        $date1->addMonth();
+        $date1->addMonthNoOverflow();
 
         $date2 = Carbon::parse('2024-01-31');
-        $date2->addMonth();
+        $date2->addMonthNoOverflow();
+
+        $date3 = Carbon::parse('2024-02-29');
+        $date3->addYear();
         return view('addmonth')
             ->with('date1', $date1)
-            ->with('date2', $date2);
+            ->with('date2', $date2)
+            ->with('date3', $date3);
     }
 }
