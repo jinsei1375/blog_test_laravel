@@ -81,4 +81,16 @@ class TestController extends Controller
             ->with('date2', $date2)
             ->with('date3', $date3);
     }
+
+    public function fresh()
+    {
+        $user = User::find(1);
+        $user->name = 'New Name';
+
+        $freshUser = $user->fresh();
+
+        return view('fresh')
+            ->with('user', $user)
+            ->with('freshUser', $freshUser);
+    }
 }
