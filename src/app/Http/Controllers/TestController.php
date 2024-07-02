@@ -84,13 +84,31 @@ class TestController extends Controller
 
     public function fresh()
     {
-        $user = User::find(1);
-        $user->name = 'New Name';
+        $user1 = User::find(1);
+        $user2 = User::find(1);
+        $user1->name = 'New Name';
+        $user1->save();
 
-        $freshUser = $user->fresh();
+        $freshUser = $user1->fresh();
+        $user2->fresh();
 
         return view('fresh')
-            ->with('user', $user)
-            ->with('freshUser', $freshUser);
+            ->with('user1Name', $user1->name)
+            ->with('user2Name', $user2->name)
+            ->with('freshUserName', $freshUser->name);
+    }
+
+    public function refresh()
+    {
+        $user1 = User::find(1);
+        $user2 = User::find(1);
+        $user1->name = 'New Name';
+        $user1->save();
+
+        $user2->refresh();
+
+        return view('refresh')
+            ->with('user1Name', $user1->name)
+            ->with('user2Name', $user2->name);
     }
 }

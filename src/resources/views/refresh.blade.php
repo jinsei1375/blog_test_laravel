@@ -15,9 +15,6 @@
                     <p>
                         {{ '$user2Name → ' . $user2Name }}
                     </p>
-                    <p>
-                        {{ '$freshUserName  → ' . $freshUserName  }}
-                    </p>
                 </div>
             </div>
         </div>
