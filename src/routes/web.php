@@ -29,6 +29,7 @@ Route::get('/test', [TestController::class, 'index']);
 Route::get('/target-users', [TestController::class, 'targetUsers']);
 Route::get('/nulltest', [TestController::class, 'null']);
 Route::get('/addmonth', [TestController::class, 'addMonthTest']);
+Route::get('/no-fresh-refresh', [TestController::class, 'noFreshRefresh']);
 Route::get('/fresh', [TestController::class, 'fresh']);
 Route::get('/refresh', [TestController::class, 'refresh']);
 

@@ -82,6 +82,18 @@ class TestController extends Controller
             ->with('date3', $date3);
     }
 
+    public function noFreshRefresh()
+    {
+        $user1 = User::find(1);
+        $user2 = User::find(1);
+        $user1->name = 'New Name';
+        $user1->save();
+
+        return view('no-fresh-refresh')
+            ->with('user1Name', $user1->name)
+            ->with('user2Name', $user2->name);
+    }
+
     public function fresh()
     {
         $user1 = User::find(1);
@@ -89,8 +101,7 @@ class TestController extends Controller
         $user1->name = 'New Name';
         $user1->save();
 
-        $freshUser = $user1->fresh();
-        $user2->fresh();
+        $freshUser = $user2->fresh();
 
         return view('fresh')
             ->with('user1Name', $user1->name)
