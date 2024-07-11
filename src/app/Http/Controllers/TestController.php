@@ -122,4 +122,33 @@ class TestController extends Controller
             ->with('user1Name', $user1->name)
             ->with('user2Name', $user2->name);
     }
+
+    public function createSample()
+    {
+        $user = User::create([
+            'name' => 'Sample User',
+            'email' => 'testoio@sample.com',
+            'password' => bcrypt('password'),]);
+
+        return $user;
+    }
+
+    public function saveSample()
+    {
+        $user = User::find(1);
+        $user->name = 'Updated Nam';
+        $savedReturn = $user->save();
+
+        return $savedReturn;
+        // $updateedReturn = 1
+    }
+
+    public function updateSample()
+    {
+    // update()を使って全てのユーザーのnameを'Updated Name'に更新
+    $updatedReturn = User::where('id', '>', 0)->update(['name' => 'Updated Name']);
+
+    return $updatedReturn;
+    // $updateedReturn = 2
+    }
 }
