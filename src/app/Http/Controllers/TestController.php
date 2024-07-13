@@ -159,4 +159,10 @@ class TestController extends Controller
     return $deletedReturn;
     // $deletedReturn = 4
     }
+
+    public function updateUserName()
+    {
+    User::where('id', '>', 0)->update(['name' => 'Updated Name']);
+
+    }
 }
