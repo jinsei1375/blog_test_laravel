@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/create-sample', [TestController::class, 'createSample']);
 Route::post('/update-sample', [TestController::class, 'updateSample']);
+Route::post('/delete-sample', [TestController::class, 'deleteSample']);

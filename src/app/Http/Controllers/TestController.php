@@ -126,8 +126,8 @@ class TestController extends Controller
     public function createSample()
     {
         $user = User::create([
-            'name' => 'Sample User',
-            'email' => 'testoio@sample.com',
+            'name' => 'Sample Use4',
+            'email' => 'testo25@sample.com',
             'password' => bcrypt('password'),]);
 
         return $user;
@@ -150,5 +150,13 @@ class TestController extends Controller
 
     return $updatedReturn;
     // $updateedReturn = 2
+    }
+
+    public function deleteSample()
+    {
+    $deletedReturn = User::where('id', '>', 1)->delete();
+
+    return $deletedReturn;
+    // $deletedReturn = 4
     }
 }
