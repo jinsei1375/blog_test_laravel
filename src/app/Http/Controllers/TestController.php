@@ -145,24 +145,23 @@ class TestController extends Controller
 
     public function updateSample()
     {
-    // update()を使って全てのユーザーのnameを'Updated Name'に更新
-    $updatedReturn = User::where('id', '>', 0)->update(['name' => 'Updated Name']);
+        // update()を使って全てのユーザーのnameを'Updated Name'に更新
+        $updatedReturn = User::where('id', '>', 0)->update(['name' => 'Updated Name']);
 
-    return $updatedReturn;
-    // $updateedReturn = 2
+        return $updatedReturn;
+        // $updateedReturn = 2
     }
 
     public function deleteSample()
     {
-    $deletedReturn = User::where('id', '>', 1)->delete();
+        $deletedReturn = User::where('id', '>', 1)->delete();
 
-    return $deletedReturn;
-    // $deletedReturn = 4
+        return $deletedReturn;
+        // $deletedReturn = 4
     }
 
     public function updateUserName()
     {
-    User::where('id', '>', 0)->update(['name' => 'Updated Name']);
-
+        User::where('id', '>', 0)->update(['name' => 'Updated Name']);
     }
 }
