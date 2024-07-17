@@ -164,4 +164,21 @@ class TestController extends Controller
     {
         User::where('id', '>', 0)->update(['name' => 'Updated Name']);
     }
+
+    public function createPosts()
+    {
+        $user = User::find(1);
+        $user->posts()->create([
+            'content' => '投稿内容',
+        ]);
+
+        return $user->posts;
+    }
+
+    public function getPosts()
+    {
+        $user = User::find(1);
+        dd($user->posts()->where('id', 1));
+
+    }
 }

@@ -33,5 +33,7 @@ Route::get('/no-fresh-refresh', [TestController::class, 'noFreshRefresh']);
 Route::get('/fresh', [TestController::class, 'fresh']);
 Route::get('/refresh', [TestController::class, 'refresh']);
 
+Route::get('/get-post', [TestController::class, 'getPosts']);
+
 
 require __DIR__.'/auth.php';
