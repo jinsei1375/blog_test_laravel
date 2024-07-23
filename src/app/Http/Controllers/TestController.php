@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
@@ -180,5 +181,39 @@ class TestController extends Controller
         $user = User::find(1);
         dd($user->posts()->where('id', 1));
 
+    }
+
+    public function createPostBySave()
+    {
+        $post = new Post();
+        $post->fill([
+            'content' => '投稿内容',
+            'user_id' => 1,
+        ])->save();
+
+        return $post;
+    }
+
+    public function createPostByCreate()
+    {
+        $newPost = Post::create([
+            'content' => 'createメソッドで作成',
+            'user_id' => 1,
+        ]);
+
+        return $newPost;
+    }
+
+    public function createPostByInsert()
+    {
+        $posts = [
+            ['content' => '最初の投稿', 'user_id' => 1],
+            ['content' => '2番目の投稿', 'user_id' => 1],
+            ['content' => '3番目の投稿', 'user_id' => 1],
+        ];
+
+        $result = Post::insert($posts);
+
+        return $result;
     }
 }

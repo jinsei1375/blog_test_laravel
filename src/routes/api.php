@@ -26,3 +26,8 @@ Route::post('/delete-sample', [TestController::class, 'deleteSample']);
 Route::post('/create-post', [TestController::class, 'createPosts']);
 Route::get('/get-post', [TestController::class, 'getPosts']);
 
+
+Route::post('/create-post-by-save', [TestController::class, 'createPostBySave']);
+Route::post('/create-post-by-create', [TestController::class, 'createPostByCreate']);
+Route::post('/create-post-by-insert', [TestController::class, 'createPostByInsert']);
+
