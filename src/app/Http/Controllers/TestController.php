@@ -7,6 +7,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use function PHPUnit\Framework\isEmpty;
 
@@ -204,15 +205,42 @@ class TestController extends Controller
         return $newPost;
     }
 
+    public function createPostByInsertOnePost()
+    {
+        $result = DB::table('posts')->insert([
+            'content' => 'insert()による投稿追加',
+            'user_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return $result;
+    }
+
     public function createPostByInsert()
     {
         $posts = [
-            ['content' => '最初の投稿', 'user_id' => 1],
-            ['content' => '2番目の投稿', 'user_id' => 1],
-            ['content' => '3番目の投稿', 'user_id' => 1],
+            [
+                'content' => '最初の投稿',
+                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'content' => '2番目の投稿',
+                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'content' => '3番目の投稿',
+                'user_id' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ];
 
-        $result = Post::insert($posts);
+        $result = DB::table('posts')->insert($posts);
 
         return $result;
     }
