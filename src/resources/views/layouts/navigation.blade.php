@@ -45,6 +45,12 @@
                             </x-dropdown-link>
                         </form>
                     </x-slot>
+                    <x-slot name="content">
+                        {{-- ユーザー情報編集画面への遷移リンク --}}
+                        <x-dropdown-link :href="route('user.edit', ['user' => Auth::user()])">
+                            {{ __('プロフィール') }}
+                        </x-dropdown-link>
+                    </x-slot>
                 </x-dropdown>
             </div>
 

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +26,9 @@ Route::middleware(['auth', 'checkIpAddress'])->group(function () {
             return view('dashboard');
         });
 });
+
+Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
+Route::post('/user/{user}/update', [UserController::class, 'update'])->name('user.update');
 
 Route::get('/test', [TestController::class, 'index']);
 Route::get('/target-users', [TestController::class, 'targetUsers']);
