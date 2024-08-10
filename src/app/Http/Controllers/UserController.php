@@ -70,6 +70,11 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update($request->all());
+        // $user->update(['name' => $request->name, 'email' => $request->email]);
+        // $user->fill($request->all())->save();
+        // $user->name = $request->name;
+        // $user->save();
+        $this->updateUserLevel($user);
         return redirect()->route('user.edit', ['user' => $user]);
     }
 
@@ -82,5 +87,12 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    // ユーザーレベル+1
+    private function updateUserLevel($user)
+    {
+        $user->level++;
+        $user->save();
     }
 }
