@@ -12,7 +12,6 @@
 
         <!-- Scripts -->
         <link rel="stylesheet" href="/css/app.css">
-        <script src="/js/app.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -31,4 +30,6 @@
             </main>
         </div>
     </body>
+    <script src="/js/app.js"></script>
+    {{-- 要素が見つからないため、body直後に記述する --}}
 </html>

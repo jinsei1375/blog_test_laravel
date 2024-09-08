@@ -1,6 +1,6 @@
 import React from "react";
 
-function ExampleComponent() {
+function AnotherComponent() {
     return (
         <div>
             <h1>Hello, React!!!</h1>
@@ -8,4 +8,4 @@ function ExampleComponent() {
     );
 }
 
-export default ExampleComponent;
+export default AnotherComponent;
