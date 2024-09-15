@@ -7,15 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    {{ '実行環境：' . app()->environment() }}
-                    @if (app()->isProduction())
-                        <p>本番環境だよー</p>
-                    @else
-                        <p>本番環境ではないよー</p>
-                    @endif
-                </div>
+            <div id="app">
+                <example-component></example-component>
             </div>
         </div>
     </div>

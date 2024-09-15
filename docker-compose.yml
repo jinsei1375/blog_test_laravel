@@ -1,4 +1,4 @@
-version: "3.9"
+# version: '3.9'
 
 services:
   app:
@@ -30,7 +30,7 @@ services:
       MYSQL_USER: root_user
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
-      TZ: "Asia/Tokyo"
+      TZ: 'Asia/Tokyo'
     volumes:
       - mysql-volume:/var/lib/mysql
 
