@@ -35,6 +35,19 @@ class TestController extends Controller
         }
     }
 
+    public function dashboard()
+    {
+        $reactData = [
+            'message' => 'Hello, React!',
+            'user' => [
+                'name' => 'Sample User',
+                'email' => 'test@test.com',
+                ]
+        ];
+        return view('dashboard')
+            ->with('reactData', $reactData);
+    }
+
     public function targetUsers()
     {
         // whereでの取得

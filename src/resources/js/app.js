@@ -13,7 +13,11 @@ const components = [
 components.forEach(({ id, component }) => {
     const container = document.getElementById(id);
     if (container) {
+        const props = container.getAttribute("data-props");
+        console.log(props);
+        const parsedProps = props ? JSON.parse(props) : {};
+        console.log(parsedProps);
         const root = createRoot(container);
-        root.render(React.createElement(component));
+        root.render(React.createElement(component, parsedProps));
     }
 });
