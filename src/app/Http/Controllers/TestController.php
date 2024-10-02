@@ -35,6 +35,19 @@ class TestController extends Controller
         }
     }
 
+    public function dashboard()
+    {
+        $vueData = [
+            'message' => 'Hello, Vue from Laravel!',
+            'user' => [
+                'name' => 'Sample User',
+                'email' => 'test@test.com',
+                ]
+        ];
+        return view('dashboard')
+            ->with('vueData', $vueData);
+    }
+
     public function targetUsers()
     {
         // whereでの取得
