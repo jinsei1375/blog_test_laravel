@@ -27,9 +27,6 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
-                <div id="app">
-                    <example-component></example-component>
-                </div>
             </main>
         </div>
     </body>

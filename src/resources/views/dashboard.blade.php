@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
+            <div id="example-app" data-props='@json($vueData)'></div>
         </div>
     </div>
 </x-app-layout>

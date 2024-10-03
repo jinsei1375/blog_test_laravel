@@ -1,12 +1,22 @@
 <template>
     <div>
-        <h1>Hello, Vue!!</h1>
+        <h1>Hello, Vue!</h1>
+        <p>{{ data.message }}</p>
     </div>
 </template>
 
 <script>
 export default {
     name: "ExampleComponent",
+    props: {
+        data: {
+            type: Object,
+            required: true,
+        },
+    },
+    mounted() {
+        console.log(this.data);
+    },
 };
 </script>
 

@@ -21,10 +21,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'checkIpAddress'])->group(function () {
-    Route::name('dashboard')
-        ->get('/dashboard', function () {
-            return view('dashboard');
-        });
+    Route::get('/dashboard', [TestController::class, 'dashboard'])->name('dashboard');
 });
 
 Route::get('/user/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
