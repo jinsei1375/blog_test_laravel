@@ -37,5 +37,7 @@ Route::get('/refresh', [TestController::class, 'refresh']);
 
 Route::get('/get-post', [TestController::class, 'getPosts']);
 
+Route::get('/paginated-posts', [TestController::class, 'paginatedPosts'])->name('paginated-posts');
+
 
 require __DIR__.'/auth.php';

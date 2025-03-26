@@ -257,4 +257,12 @@ class TestController extends Controller
 
         return $result;
     }
+
+    public function paginatedPosts()
+    {
+        $posts = Post::paginate(10);
+
+        return view('paginated-posts')
+            ->with('posts', $posts);
+    }
 }
