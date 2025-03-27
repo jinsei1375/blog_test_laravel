@@ -258,9 +258,15 @@ class TestController extends Controller
         return $result;
     }
 
-    public function paginatedPosts()
+    public function paginatedPosts(Request $request)
     {
-        $posts = Post::paginate(10);
+        $posts = Post::paginate(10)->withQueryString();
+
+        // $posts = Post::paginate(10)->appends($request->query());
+        // $posts = Post::paginate(10)->appends([
+        //     'query' => 'test',
+        //     'aaaa' => 'bbbb',
+        // ]);
 
         return view('paginated-posts')
             ->with('posts', $posts);

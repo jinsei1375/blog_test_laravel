@@ -13,7 +13,9 @@
         </ul>
 
         <div class="paginate flex justify-center mt-4">
-            {{ $posts->withQueryString()->links() }}
+            {{-- {{ $posts->withQueryString()->links() }}
+            {{ $posts->appends(request()->query())->links() }} --}}
+            {{ $posts->links() }}
         </div>
     </div>
 </x-app-layout>
